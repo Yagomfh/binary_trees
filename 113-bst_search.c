@@ -12,6 +12,8 @@ bst_t *bst_search(const bst_t *tree, int value)
 {
 	bst_t *current;
 
+	if (!tree)
+		return (NULL);
 	current = (bst_t *)tree;
 
 	while (current->n != value)
