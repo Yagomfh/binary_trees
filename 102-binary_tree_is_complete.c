@@ -1,17 +1,17 @@
 #include "binary_trees.h"
 
 /**
-  * total nodes - computes the total number of nodes
+  * total_nodes - computes the total number of nodes
   * @root: pointer to root node
   * Return: number of nodes in bin-tree
   */
 
-unsigned int total_nodes(const binary_tree_t *root) 
-{ 
-	if (root == NULL) 
-		return (0); 
-	return (1 + total_nodes(root->left) + total_nodes(root->right)); 
-} 
+unsigned int total_nodes(const binary_tree_t *root)
+{
+	if (root == NULL)
+		return (0);
+	return (1 + total_nodes(root->left) + total_nodes(root->right));
+}
 
 /**
   * is_complete - check is a tree is complete
@@ -45,4 +45,4 @@ int binary_tree_is_complete(const binary_tree_t *tree)
 		return (0);
 	else
 		return (is_complete(tree, index, nb_nodes));
-} 
+}
