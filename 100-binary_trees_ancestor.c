@@ -22,6 +22,25 @@ unsigned int depth(const binary_tree_t *tree)
 }
 
 /**
+  * chech_root - check if nodes are in the same binary tree
+  * @f: first node
+  * @s: second node
+  * Return: 1 if same BT or 0 otherwise
+  */
+
+int check_root(const binary_tree_t *f, const binary_tree_t *s)
+{
+	while (f->parent != NULL)
+		f = f->parent;
+	while (s->parent != NULL)
+		s = s->parent;
+	if (f == s)
+		return (1);
+	else
+		return (0);
+}
+
+/**
   * binary_trees_ancestor - finds the lowest common ancestor of two nodes
   * @first: first node
   * @second: second node
@@ -34,6 +53,9 @@ binary_tree_t *binary_trees_ancestor(const binary_tree_t *first,
 	unsigned int d1, d2, diff;
 
 	if (!first || !second)
+		return (NULL);
+
+	if (check_root(first, second) == 0)
 		return (NULL);
 
 	d1 = depth(first);
