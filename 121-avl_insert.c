@@ -1,5 +1,12 @@
 #include "binary_trees.h"
 
+/**
+  * check_balance - check if sub tres are balanced
+  * @tree: pointer to root node
+  * @value: value added
+  * Return: void
+  */
+
 void check_balance(avl_t **tree, int value)
 {
 	int balance;
