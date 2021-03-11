@@ -16,17 +16,26 @@ avl_t *avl_insert(avl_t **tree, int value)
 	if (!tree)
 		return (NULL);
 	if (!(*tree))
+	{
 		*tree = binary_tree_node(NULL, value);
+		return (*tree);
+	}
 	if (value < (*tree)->n)
 	{
 		if (!(*tree)->left)
+		{
 			(*tree)->left = binary_tree_node(*tree, value);
+			return ((*tree)->left);
+		}
 		current = avl_insert(&(*tree)->left, value);
 	}
 	else if (value > (*tree)->n)
 	{
 		if (!(*tree)->right)
+		{
 			(*tree)->right = binary_tree_node(*tree, value);
+			return ((*tree)->right);
+		}
 		current = avl_insert(&(*tree)->right, value);
 	}
 	else
