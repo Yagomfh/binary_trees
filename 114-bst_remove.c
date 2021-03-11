@@ -11,7 +11,7 @@ bst_t *minValueNode(bst_t *tree);
 
 bst_t *bst_remove(bst_t *root, int value)
 {
-	bst_t *tmp;
+	bst_t *tmp, *parent;
 
 	if (!root)
 		return (root);
@@ -24,23 +24,27 @@ bst_t *bst_remove(bst_t *root, int value)
 
 	else /* when value = root->n */
 	{
+		/* no child or 1 child */
 		if (root->left == NULL && root->right == NULL)
 		{
 			free(root);
 			root = NULL;
 		}
-		/* 1 child */
 		else if (root->left == NULL)
 		{
 			tmp = root;
+			parent = root->parent;
 			root = root->right;
+			root->parent = parent;
 			free(tmp);
 		}
 		else if (root->right == NULL)
 		{
 			tmp = root;
+			parent = root->parent;
 			root = root->left;
-			/* free(tmp); */
+			root->parent = parent;
+			free(tmp);
 		}
 		/* 2 children */
 		/* Inorder successor: smallest element in right subtree */
