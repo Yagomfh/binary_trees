@@ -22,7 +22,7 @@ unsigned int depth(const binary_tree_t *tree)
 }
 
 /**
-  * chech_root - check if nodes are in the same binary tree
+  * check_root - check if nodes are in the same binary tree
   * @f: first node
   * @s: second node
   * Return: 1 if same BT or 0 otherwise
