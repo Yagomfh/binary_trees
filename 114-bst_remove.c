@@ -24,8 +24,13 @@ bst_t *bst_remove(bst_t *root, int value)
 
 	else /* when value = root->n */
 	{
-		/* no child or 1 child */
-		if (root->left == NULL)
+		if (root->left == NULL && root->right == NULL)
+		{
+			free(root);
+			root = NULL;
+		}
+		/* 1 child */
+		else if (root->left == NULL)
 		{
 			tmp = root;
 			root = root->right;
@@ -35,7 +40,7 @@ bst_t *bst_remove(bst_t *root, int value)
 		{
 			tmp = root;
 			root = root->left;
-			free(tmp);
+			/* free(tmp); */
 		}
 		/* 2 children */
 		/* Inorder successor: smallest element in right subtree */
